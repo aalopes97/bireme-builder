@@ -1,0 +1,60 @@
+.bireme-topics__list {
+	margin: 10px 0 8px;
+}
+
+.bireme-topics__item {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0 0 6px;
+	padding: 6px 6px 6px 4px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.bireme-topics__handle {
+	flex: 0 0 auto;
+	color: #8c8f94;
+	cursor: move;
+}
+
+.bireme-topics__title {
+	flex: 1 1 auto;
+	min-width: 0;
+	font-size: 12px;
+	line-height: 1.35;
+	overflow-wrap: anywhere;
+}
+
+.bireme-topics__remove {
+	flex: 0 0 auto;
+	width: 22px;
+	height: 22px;
+	padding: 0;
+	color: #b32d2e;
+	background: none;
+	border: 0;
+	border-radius: 50%;
+	font-size: 18px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.bireme-topics__remove:hover,
+.bireme-topics__remove:focus {
+	background: #fcf0f1;
+}
+
+.bireme-topics__placeholder {
+	height: 32px;
+	margin: 0 0 6px;
+	border: 1px dashed #8c8f94;
+	border-radius: 4px;
+}
+
+.ui-autocomplete {
+	z-index: 100110 !important;
+	max-height: 260px;
+	overflow-y: auto;
+}

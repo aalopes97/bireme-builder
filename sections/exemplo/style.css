@@ -1,0 +1,103 @@
+.bireme-section--exemplo .bb-exemplo {
+	padding: 64px 24px;
+}
+
+.bireme-section--exemplo .bb-exemplo__inner {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 48px;
+	align-items: center;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+.bireme-section--exemplo .bb-exemplo--no-image .bb-exemplo__inner {
+	grid-template-columns: minmax(0, 1fr);
+	max-width: 760px;
+}
+
+.bireme-section--exemplo .bb-exemplo--image-left .bb-exemplo__media {
+	order: -1;
+}
+
+.bireme-section--exemplo .bb-exemplo__title {
+	margin: 0 0 12px;
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	line-height: 1.2;
+}
+
+.bireme-section--exemplo .bb-exemplo__subtitle {
+	margin: 0 0 20px;
+	font-size: 1.15rem;
+	opacity: .8;
+}
+
+.bireme-section--exemplo .bb-exemplo__text > :last-child {
+	margin-bottom: 0;
+}
+
+.bireme-section--exemplo .bb-exemplo__button {
+	display: inline-block;
+	margin-top: 24px;
+	padding: 12px 28px;
+	color: #fff;
+	background: #1d4f91;
+	border-radius: 4px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: background-color .2s;
+}
+
+.bireme-section--exemplo .bb-exemplo__button:hover,
+.bireme-section--exemplo .bb-exemplo__button:focus {
+	background: #163c6f;
+	color: #fff;
+}
+
+.bireme-section--exemplo .bb-exemplo__media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+}
+
+.bireme-section--exemplo .bb-exemplo__items {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 24px;
+	max-width: 1140px;
+	margin: 48px auto 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bireme-section--exemplo .bb-exemplo__item {
+	padding: 20px;
+	background: rgba(255, 255, 255, .7);
+	border: 1px solid rgba(0, 0, 0, .08);
+	border-radius: 6px;
+}
+
+.bireme-section--exemplo .bb-exemplo__item-title {
+	display: block;
+	margin-bottom: 6px;
+}
+
+.bireme-section--exemplo .bb-exemplo__item-text {
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	.bireme-section--exemplo .bb-exemplo {
+		padding: 40px 16px;
+	}
+
+	.bireme-section--exemplo .bb-exemplo__inner {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 24px;
+	}
+
+	.bireme-section--exemplo .bb-exemplo--image-left .bb-exemplo__media {
+		order: 0;
+	}
+}

@@ -1,0 +1,342 @@
+.bireme-section--lista-categorias {
+	--bb-lc-blue: #014EA3;
+	--bb-lc-blue-soft: #EAF2FB;
+	--bb-lc-orange: #FE5604;
+	--bb-lc-title: #1E1E1E;
+	--bb-lc-text: #929292;
+	--bb-lc-line: #E6E8EC;
+	--bb-lc-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.bireme-section--lista-categorias .bb-lc {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 24px 20px;
+	font-family: var(--bb-lc-font);
+	box-sizing: border-box;
+	container-type: inline-size;
+}
+
+.bireme-section--lista-categorias .bb-lc *,
+.bireme-section--lista-categorias .bb-lc *::before,
+.bireme-section--lista-categorias .bb-lc *::after {
+	box-sizing: border-box;
+}
+
+.bireme-section--lista-categorias .bb-lc__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin: 0 0 14px;
+}
+
+.bireme-section--lista-categorias .bb-lc__title {
+	margin: 0;
+	padding: 0;
+	color: var(--bb-lc-blue);
+	font-family: var(--bb-lc-font);
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.bireme-section--lista-categorias .bb-lc__more {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	flex: 0 0 auto;
+	color: var(--bb-lc-blue) !important;
+	font-size: 12px;
+	font-weight: 500;
+	text-decoration: none !important;
+}
+
+.bireme-section--lista-categorias .bb-lc__more svg {
+	width: 14px;
+	height: 14px;
+}
+
+.bireme-section--lista-categorias .bb-lc__more:hover,
+.bireme-section--lista-categorias .bb-lc__more:focus-visible {
+	text-decoration: underline !important;
+}
+
+.bireme-section--lista-categorias .bb-lc__items {
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+}
+
+.bireme-section--lista-categorias .bb-lc__item {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.bireme-section--lista-categorias .bb-lc__item::before,
+.bireme-section--lista-categorias .bb-lc__item::marker {
+	content: none !important;
+}
+
+.bireme-section--lista-categorias .bb-lc a {
+	text-decoration: none !important;
+}
+
+.bireme-section--lista-categorias .bb-lc a:focus-visible {
+	outline: 2px solid var(--bb-lc-orange);
+	outline-offset: 2px;
+}
+
+.bireme-section--lista-categorias .bb-lc__sr {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Cards em grade ---------------------------------------------------------- */
+
+.bireme-section--lista-categorias .bb-lc--cards .bb-lc__items {
+	display: grid;
+	grid-template-columns: repeat(var(--bb-lc-cols, 3), minmax(0, 1fr));
+	gap: 16px;
+}
+
+.bireme-section--lista-categorias .bb-lc__card {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	height: 100%;
+	padding: 18px 18px 16px;
+	color: var(--bb-lc-title) !important;
+	background: #fff;
+	border: 1px solid var(--bb-lc-line);
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+	transition: border-color .25s, box-shadow .25s, transform .25s;
+}
+
+.bireme-section--lista-categorias .bb-lc__card:hover,
+.bireme-section--lista-categorias .bb-lc__card:focus-visible {
+	border-color: var(--bb-lc-blue);
+	box-shadow: 0 10px 24px rgba(1, 78, 163, .12);
+	transform: translateY(-3px);
+}
+
+.bireme-section--lista-categorias .bb-lc__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	margin-bottom: 4px;
+	color: var(--bb-lc-blue);
+	background: var(--bb-lc-blue-soft);
+	border-radius: 10px;
+	transition: background-color .25s, color .25s;
+}
+
+.bireme-section--lista-categorias .bb-lc__card:hover .bb-lc__icon,
+.bireme-section--lista-categorias .is-current .bb-lc__icon {
+	color: #fff;
+	background: var(--bb-lc-blue);
+}
+
+.bireme-section--lista-categorias .bb-lc__card .bb-lc__name {
+	color: var(--bb-lc-title);
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.bireme-section--lista-categorias .bb-lc__desc {
+	color: var(--bb-lc-text);
+	font-size: 13px;
+	line-height: 1.45;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.bireme-section--lista-categorias .bb-lc__foot {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: auto;
+	padding-top: 8px;
+}
+
+.bireme-section--lista-categorias .bb-lc__count {
+	color: var(--bb-lc-blue);
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.bireme-section--lista-categorias .bb-lc__arrow {
+	display: inline-flex;
+	margin-left: auto;
+	color: var(--bb-lc-orange);
+	transition: transform .25s;
+}
+
+.bireme-section--lista-categorias .bb-lc__card:hover .bb-lc__arrow {
+	transform: translateX(4px);
+}
+
+.bireme-section--lista-categorias .is-current .bb-lc__card {
+	border-color: var(--bb-lc-blue);
+}
+
+/* Lista (barra lateral) ----------------------------------------------------- */
+
+.bireme-section--lista-categorias .bb-lc--list .bb-lc__items {
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid var(--bb-lc-line);
+	border-radius: 12px;
+}
+
+.bireme-section--lista-categorias .bb-lc--list .bb-lc__item + .bb-lc__item {
+	border-top: 1px solid var(--bb-lc-line);
+}
+
+.bireme-section--lista-categorias .bb-lc--list .bb-lc__link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 13px 16px;
+	color: var(--bb-lc-title) !important;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.35;
+	transition: background-color .2s, color .2s, padding-left .2s;
+}
+
+.bireme-section--lista-categorias .bb-lc--list .bb-lc__link::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 10px;
+	bottom: 10px;
+	width: 3px;
+	background: var(--bb-lc-orange);
+	border-radius: 0 3px 3px 0;
+	opacity: 0;
+	transition: opacity .2s;
+}
+
+.bireme-section--lista-categorias .bb-lc--list .bb-lc__link:hover,
+.bireme-section--lista-categorias .bb-lc--list .is-current .bb-lc__link {
+	padding-left: 20px;
+	color: var(--bb-lc-blue) !important;
+	background: #F7F9FC;
+}
+
+.bireme-section--lista-categorias .bb-lc--list .bb-lc__link:hover::before,
+.bireme-section--lista-categorias .bb-lc--list .is-current .bb-lc__link::before {
+	opacity: 1;
+}
+
+.bireme-section--lista-categorias .bb-lc--list .is-current .bb-lc__link {
+	font-weight: 700;
+}
+
+.bireme-section--lista-categorias .bb-lc--list .bb-lc__link:focus-visible {
+	outline-offset: -2px;
+}
+
+.bireme-section--lista-categorias .bb-lc__badge {
+	flex: 0 0 auto;
+	min-width: 30px;
+	padding: 3px 9px;
+	color: var(--bb-lc-blue);
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.4;
+	text-align: center;
+	background: var(--bb-lc-blue-soft);
+	border-radius: 999px;
+	transition: background-color .2s, color .2s;
+}
+
+.bireme-section--lista-categorias .bb-lc__link:hover .bb-lc__badge,
+.bireme-section--lista-categorias .is-current .bb-lc__badge {
+	color: #fff;
+	background: var(--bb-lc-blue);
+}
+
+/* Etiquetas ----------------------------------------------------------------- */
+
+.bireme-section--lista-categorias .bb-lc--chips .bb-lc__items {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.bireme-section--lista-categorias .bb-lc--chips .bb-lc__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 8px 7px 16px;
+	color: var(--bb-lc-title) !important;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.3;
+	background: #fff;
+	border: 1px solid var(--bb-lc-line);
+	border-radius: 999px;
+	transition: border-color .2s, color .2s, background-color .2s;
+}
+
+.bireme-section--lista-categorias .bb-lc--chips .bb-lc__link:not(:has(.bb-lc__badge)) {
+	padding-right: 16px;
+}
+
+.bireme-section--lista-categorias .bb-lc--chips .bb-lc__link:hover,
+.bireme-section--lista-categorias .bb-lc--chips .is-current .bb-lc__link {
+	color: var(--bb-lc-blue) !important;
+	border-color: var(--bb-lc-blue);
+	background: #F7F9FC;
+}
+
+/* Responsivo ----------------------------------------------------------------- */
+
+/* Dentro de colunas estreitas (ex.: barra lateral) os cards ficam empilhados. */
+@container (max-width: 520px) {
+	.bireme-section--lista-categorias .bb-lc--cards .bb-lc__items {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 900px) {
+	.bireme-section--lista-categorias .bb-lc--cards .bb-lc__items {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	.bireme-section--lista-categorias .bb-lc--cards .bb-lc__items {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.bireme-section--lista-categorias .bb-lc__head {
+		flex-wrap: wrap;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bireme-section--lista-categorias .bb-lc * {
+		transition: none !important;
+	}
+}

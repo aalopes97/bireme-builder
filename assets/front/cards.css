@@ -1,0 +1,351 @@
+/*! Bireme Builder | Desenvolvido por @toni - 2WP | https://2wp.com.br */
+/* ==========================================================================
+   Bireme Builder - cards horizontais e paginacao (Lista de publicacoes e Posts relacionados)
+   ========================================================================== */
+
+.bb-ap {
+	--bb-ap-blue: #014EA3;
+	--bb-ap-orange: #FE5604;
+	--bb-ap-title: #1E1E1E;
+	--bb-ap-text: #4A4A4A;
+	--bb-ap-date: #929292;
+	--bb-ap-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.bb-ap {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 24px 20px;
+	font-family: var(--bb-ap-font);
+	box-sizing: border-box;
+}
+
+.bb-ap *,
+.bb-ap *::before,
+.bb-ap *::after {
+	box-sizing: border-box;
+}
+
+/* Cards ------------------------------------------------------------------- */
+
+.bb-ap__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.bb-ap__grid:empty {
+	display: none;
+}
+
+/* Edição individual: os artigos ficam na mesma dimensão. */
+.bb-ap--uniform .bb-ap__card {
+	min-height: 152px;
+}
+
+.bb-ap--uniform .bb-ap__category {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.bb-ap__card {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+	gap: 12px;
+	min-height: 120px;
+	padding: 6px;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+	transition: box-shadow .25s, transform .25s;
+}
+
+.bb-ap__card.has-link:hover,
+.bb-ap__card.has-link:focus-within {
+	box-shadow: 0 8px 20px rgba(0, 0, 0, .1);
+	transform: translateY(-2px);
+}
+
+.bb-ap__card.is-new {
+	animation: bb-ap-in .5s cubic-bezier(.2, .7, .2, 1) both;
+}
+
+/* A imagem fica no próprio formato, no topo: esticar até a altura do resumo amplia e borra a foto. */
+.bb-ap__media {
+	position: relative;
+	flex: 0 0 36%;
+	align-self: flex-start;
+	aspect-ratio: 16 / 10;
+	overflow: hidden;
+	background: #E6E9EE;
+	border-radius: 8px;
+}
+
+.bb-ap__media img {
+	position: absolute;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	margin: 0;
+	object-fit: cover;
+	transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+}
+
+.bb-ap__card.has-link:hover .bb-ap__media img {
+	transform: scale(1.06);
+}
+
+.bb-ap__body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+	padding: 4px 6px 4px 0;
+}
+
+.bb-ap__category {
+	color: var(--bb-ap-orange);
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1.2;
+	text-transform: uppercase;
+	letter-spacing: .02em;
+}
+
+.bb-ap__title {
+	margin: 0;
+	padding: 0;
+	color: var(--bb-ap-title);
+	font-family: var(--bb-ap-font);
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.25;
+	letter-spacing: 0;
+	text-transform: none;
+	transition: color .2s;
+}
+
+.bb-ap__card.has-link:hover .bb-ap__title {
+	color: var(--bb-ap-blue);
+}
+
+.bb-ap__title a {
+	color: inherit !important;
+	text-decoration: none !important;
+}
+
+/* O link do título cobre o card inteiro. */
+.bb-ap__title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 12px;
+}
+
+.bb-ap__title a:focus-visible {
+	outline: none;
+}
+
+.bb-ap__title a:focus-visible::after {
+	outline: 2px solid var(--bb-ap-orange);
+	outline-offset: 2px;
+}
+
+.bb-ap__excerpt {
+	margin: 0;
+	color: var(--bb-ap-text);
+	font-size: 11px;
+	line-height: 1.4;
+}
+
+.bb-ap__date {
+	margin-top: auto;
+	padding-top: 2px;
+	color: var(--bb-ap-date);
+	font-size: 11px;
+	line-height: 1;
+}
+
+/* Destaque */
+
+.bb-ap__card--featured {
+	gap: 10px;
+	min-height: 0;
+	margin-bottom: 16px;
+	padding: 0;
+	overflow: hidden;
+}
+
+.bb-ap__card--featured .bb-ap__media {
+	flex-basis: 40%;
+	align-self: stretch;
+	aspect-ratio: auto;
+	min-height: 190px;
+	border-radius: 12px 0 0 12px;
+}
+
+.bb-ap__card--featured .bb-ap__body {
+	padding: 14px 16px 14px 0;
+	gap: 10px;
+}
+
+.bb-ap__card--featured .bb-ap__category {
+	font-size: 12px;
+}
+
+.bb-ap__card--featured .bb-ap__title {
+	font-size: 14px;
+}
+
+.bb-ap__card--featured .bb-ap__excerpt,
+.bb-ap__card--featured .bb-ap__date {
+	font-size: 12px;
+}
+
+.bb-ap__card--featured .bb-ap__date {
+	margin-top: 0;
+}
+
+/* Paginação --------------------------------------------------------------- */
+
+.bb-ap__footer {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px 16px;
+	margin-top: 20px;
+}
+
+.bb-ap__pages {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+}
+
+.bb-ap__pages li {
+	margin: 0 !important;
+	padding: 0;
+}
+
+.bb-ap__pages .page-numbers {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 28px;
+	height: 28px;
+	padding: 0 6px;
+	color: var(--bb-ap-title) !important;
+	background: transparent;
+	border-radius: 6px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1;
+	text-decoration: none !important;
+	transition: background-color .2s, color .2s;
+}
+
+.bb-ap__pages a.page-numbers:hover,
+.bb-ap__pages a.page-numbers:focus-visible {
+	color: var(--bb-ap-blue) !important;
+	background: #E4ECF6;
+}
+
+.bb-ap__pages .page-numbers.current {
+	color: #fff !important;
+	background: var(--bb-ap-blue);
+}
+
+.bb-ap__pages .page-numbers.dots {
+	min-width: 20px;
+	padding: 0;
+}
+
+.bb-ap__pages .prev,
+.bb-ap__pages .next {
+	color: var(--bb-ap-blue) !important;
+}
+
+.bb-ap__pages svg {
+	display: block;
+}
+
+.bb-ap__more {
+	display: inline-flex;
+	align-items: center;
+	margin-left: auto;
+	padding: 8px 16px;
+	color: var(--bb-ap-blue) !important;
+	background: #fff;
+	border: 1px solid #D6DEEA;
+	border-radius: 6px;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.2;
+	text-decoration: none !important;
+	transition: background-color .2s, border-color .2s;
+}
+
+.bb-ap__more:hover,
+.bb-ap__more:focus-visible {
+	background: #F2F6FB;
+	border-color: var(--bb-ap-blue);
+}
+
+.bb-ap__more.is-loading {
+	opacity: .7;
+	cursor: progress;
+}
+
+.bb-ap__empty {
+	margin: 0;
+	padding: 32px 20px;
+	color: var(--bb-ap-text);
+	background: #fff;
+	border-radius: 12px;
+	font-size: 14px;
+	text-align: center;
+}
+
+@keyframes bb-ap-in {
+	from { opacity: 0; transform: translateY(14px); }
+	to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 700px) {
+	.bb-ap__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media (max-width: 560px) {
+	.bb-ap__card--featured {
+		flex-direction: column;
+	}
+
+	.bb-ap__card--featured .bb-ap__media {
+		flex-basis: auto;
+		min-height: 0;
+		aspect-ratio: 16 / 9;
+		border-radius: 12px 12px 0 0;
+	}
+
+	.bb-ap__card--featured .bb-ap__body {
+		padding: 0 14px 14px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bb-ap__card.is-new {
+		animation: none;
+	}
+}

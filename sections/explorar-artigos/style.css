@@ -1,0 +1,189 @@
+.bireme-section--explorar-artigos {
+	--bb-ea-blue: #014EA3;
+	--bb-ea-orange: #FE5604;
+	--bb-ea-title: #1E1E1E;
+	--bb-ea-text: #4A4A4A;
+	--bb-ea-date: #929292;
+	--bb-ea-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.bireme-section--explorar-artigos .bb-ea {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 24px 20px;
+	font-family: var(--bb-ea-font);
+	box-sizing: border-box;
+}
+
+.bireme-section--explorar-artigos .bb-ea *,
+.bireme-section--explorar-artigos .bb-ea *::before,
+.bireme-section--explorar-artigos .bb-ea *::after {
+	box-sizing: border-box;
+}
+
+.bireme-section--explorar-artigos .bb-ea__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin: 0 0 12px;
+}
+
+.bireme-section--explorar-artigos .bb-ea__title {
+	margin: 0;
+	padding: 0;
+	color: var(--bb-ea-blue);
+	font-family: var(--bb-ea-font);
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.bireme-section--explorar-artigos .bb-ea__more {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	flex: 0 0 auto;
+	color: var(--bb-ea-blue) !important;
+	font-size: 12px;
+	font-weight: 500;
+	text-decoration: none !important;
+}
+
+.bireme-section--explorar-artigos .bb-ea__more:hover,
+.bireme-section--explorar-artigos .bb-ea__more:focus-visible {
+	text-decoration: underline !important;
+}
+
+.bireme-section--explorar-artigos .bb-ea__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--bb-ea-cols, 3), minmax(0, 1fr));
+	gap: 16px;
+}
+
+.bireme-section--explorar-artigos .bb-ea__card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 8px 8px 14px;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+	transition: box-shadow .25s, transform .25s;
+}
+
+.bireme-section--explorar-artigos .bb-ea__card.has-link:hover,
+.bireme-section--explorar-artigos .bb-ea__card.has-link:focus-within {
+	box-shadow: 0 8px 20px rgba(0, 0, 0, .1);
+	transform: translateY(-2px);
+}
+
+.bireme-section--explorar-artigos .bb-ea__media {
+	aspect-ratio: 16 / 10;
+	overflow: hidden;
+	border-radius: 10px;
+	background: #E6E9EE;
+}
+
+.bireme-section--explorar-artigos .bb-ea__media img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	margin: 0;
+	object-fit: cover;
+}
+
+.bireme-section--explorar-artigos .bb-ea__body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	gap: 8px;
+	padding: 0 4px;
+}
+
+.bireme-section--explorar-artigos .bb-ea__category {
+	color: var(--bb-ea-orange);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.2;
+	text-transform: uppercase;
+	letter-spacing: .02em;
+}
+
+.bireme-section--explorar-artigos .bb-ea__card-title {
+	margin: 0;
+	padding: 0;
+	color: var(--bb-ea-title);
+	font-family: var(--bb-ea-font);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-transform: none;
+	border: 0 !important;
+	border-bottom: 0 !important;
+	box-shadow: none !important;
+	background: none !important;
+}
+
+.bireme-section--explorar-artigos .bb-ea__card-title::before,
+.bireme-section--explorar-artigos .bb-ea__card-title::after {
+	content: none;
+	display: none;
+	border: 0;
+	background: none;
+}
+
+.bireme-section--explorar-artigos .bb-ea__card-title a {
+	color: inherit !important;
+	text-decoration: none !important;
+}
+
+/* O link do título cobre o card inteiro. */
+.bireme-section--explorar-artigos .bb-ea__card-title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 12px;
+}
+
+.bireme-section--explorar-artigos .bb-ea__card-title a:focus-visible::after {
+	outline: 2px solid var(--bb-ea-orange);
+	outline-offset: 2px;
+}
+
+.bireme-section--explorar-artigos .bb-ea__excerpt {
+	margin: 0;
+	color: var(--bb-ea-text);
+	font-size: 12px;
+	line-height: 1.4;
+}
+
+.bireme-section--explorar-artigos .bb-ea__date {
+	margin-top: auto;
+	padding-top: 4px;
+	color: var(--bb-ea-date);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1;
+}
+
+@media (max-width: 900px) {
+	.bireme-section--explorar-artigos .bb-ea__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	.bireme-section--explorar-artigos .bb-ea__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.bireme-section--explorar-artigos .bb-ea__head {
+		flex-wrap: wrap;
+	}
+}

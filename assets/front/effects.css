@@ -1,0 +1,235 @@
+/*! Bireme Builder | Desenvolvido por @toni - 2WP | https://2wp.com.br */
+/* ==========================================================================
+   Bireme Builder — efeitos (entrada ao rolar e interações de hover)
+   ========================================================================== */
+
+:root {
+	--bb-ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Entrada ao rolar (classes aplicadas pelo layout.js só nas seções abaixo da dobra)
+   -------------------------------------------------------------------------- */
+
+.bb-reveal {
+	opacity: 0;
+	transform: translateY(28px);
+}
+
+.bb-reveal.is-visible {
+	opacity: 1;
+	transform: none;
+	transition: opacity .7s var(--bb-ease), transform .7s var(--bb-ease);
+}
+
+.bb-reveal .bb-reveal-child {
+	opacity: 0;
+	transform: translateY(18px);
+}
+
+.bb-reveal.is-visible .bb-reveal-child {
+	opacity: 1;
+	transform: none;
+	transition: opacity .55s var(--bb-ease) var(--bb-delay, 0s), transform .55s var(--bb-ease) var(--bb-delay, 0s);
+}
+
+/* --------------------------------------------------------------------------
+   Slide Boletim
+   -------------------------------------------------------------------------- */
+
+.bireme-section--slide-boletim .bb-sb__slide.is-active .bb-sb__media img {
+	animation: bb-kenburns 9s ease-out both;
+}
+
+.bireme-section--slide-boletim .bb-sb__slide.is-active .bb-sb__edition,
+.bireme-section--slide-boletim .bb-sb__slide.is-active .bb-sb__content > * {
+	animation: bb-fade-up .7s var(--bb-ease) both;
+}
+
+.bireme-section--slide-boletim .bb-sb__slide.is-active .bb-sb__content > :nth-child(2) {
+	animation-delay: .12s;
+}
+
+.bireme-section--slide-boletim .bb-sb__slide.is-active .bb-sb__content > :nth-child(3) {
+	animation-delay: .24s;
+}
+
+.bireme-section--slide-boletim .bb-sb__slide.is-active .bb-sb__content > :nth-child(4) {
+	animation-delay: .36s;
+}
+
+.bireme-section--slide-boletim .bb-sb__button {
+	transition: filter .2s, transform .2s var(--bb-ease);
+}
+
+.bireme-section--slide-boletim .bb-sb__button:hover {
+	transform: translateY(-2px);
+}
+
+.bireme-section--slide-boletim .bb-sb__card-media {
+	overflow: hidden;
+}
+
+.bireme-section--slide-boletim .bb-sb__card-media img {
+	transition: transform .5s var(--bb-ease);
+}
+
+.bireme-section--slide-boletim .bb-sb .bb-sb__card:hover .bb-sb__card-media img {
+	transform: scale(1.06);
+}
+
+.bireme-section--slide-boletim .bb-sb .bb-sb__card,
+.bireme-section--slide-boletim .bb-sb .bb-sb__card:hover,
+.bireme-section--slide-boletim .bb-sb .bb-sb__card:focus,
+.bireme-section--slide-boletim .bb-sb .bb-sb__card:active {
+	transition: border-color .25s, box-shadow .25s, transform .25s var(--bb-ease);
+}
+
+.bireme-section--slide-boletim .bb-sb .bb-sb__card:hover {
+	transform: translateY(-3px);
+}
+
+/* --------------------------------------------------------------------------
+   Explorar artigos
+   -------------------------------------------------------------------------- */
+
+.bireme-section--explorar-artigos .bb-ea__media img {
+	transition: transform .5s var(--bb-ease);
+}
+
+.bireme-section--explorar-artigos .bb-ea__card.has-link:hover .bb-ea__media img,
+.bireme-section--explorar-artigos .bb-ea__card.has-link:focus-within .bb-ea__media img {
+	transform: scale(1.06);
+}
+
+.bireme-section--explorar-artigos .bb-ea__card-title {
+	transition: color .2s;
+}
+
+.bireme-section--explorar-artigos .bb-ea__card.has-link:hover .bb-ea__card-title {
+	color: var(--bb-ea-blue);
+}
+
+/* Seta do link "ver todas" desliza no hover (vale também para Projetos). */
+.bb-ea__more svg,
+.bb-pi__more svg {
+	transition: transform .2s var(--bb-ease);
+}
+
+.bb-ea__more:hover svg,
+.bb-pi__more:hover svg {
+	transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   Temas em destaque e Mais lidas
+   -------------------------------------------------------------------------- */
+
+.bireme-section--temas-destaque .bb-td__icon,
+.bireme-section--mais-lidas .bb-ml__number {
+	transition: transform .25s var(--bb-ease), background-color .25s;
+}
+
+.bireme-section--temas-destaque a.bb-td__link:hover .bb-td__icon {
+	transform: scale(1.1);
+}
+
+.bireme-section--mais-lidas .bb-ml__link:hover .bb-ml__number {
+	background: #FE5604;
+	transform: scale(1.1);
+}
+
+.bireme-section--temas-destaque .bb-td__link,
+.bireme-section--mais-lidas .bb-ml__link {
+	transition: background-color .2s, transform .25s var(--bb-ease);
+}
+
+.bireme-section--temas-destaque a.bb-td__link:hover,
+.bireme-section--mais-lidas .bb-ml__link:hover {
+	transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   Projetos e iniciativas
+   -------------------------------------------------------------------------- */
+
+.bireme-section--projetos-iniciativas .bb-pi__logo img {
+	transition: transform .3s var(--bb-ease);
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__item.has-link:hover .bb-pi__logo img {
+	transform: scale(1.06);
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__name {
+	transition: color .2s;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__item.has-link:hover .bb-pi__name {
+	color: var(--bb-pi-blue);
+}
+
+/* --------------------------------------------------------------------------
+   Newsletter
+   -------------------------------------------------------------------------- */
+
+.bireme-section--newsletter .bb-nl__media img,
+.bireme-section--newsletter .bb-nl__icon {
+	animation: bb-float 4s ease-in-out infinite;
+}
+
+.bireme-section--newsletter .bb-nl .bb-nl__field button {
+	transition: filter .2s, box-shadow .2s;
+}
+
+.bireme-section--newsletter .bb-nl .bb-nl__field button:hover {
+	box-shadow: 0 4px 14px rgba(254, 86, 4, .45) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Rodapé
+   -------------------------------------------------------------------------- */
+
+.bireme-footer__social a {
+	transition: color .2s, transform .2s var(--bb-ease);
+}
+
+.bireme-footer__social a:hover,
+.bireme-footer__social a:focus-visible {
+	transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Keyframes
+   -------------------------------------------------------------------------- */
+
+@keyframes bb-kenburns {
+	from { transform: scale(1.08); }
+	to { transform: scale(1); }
+}
+
+@keyframes bb-fade-up {
+	from { opacity: 0; transform: translateY(14px); }
+	to { opacity: 1; transform: none; }
+}
+
+@keyframes bb-float {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bireme-builder-page *,
+	.bireme-builder-page *::before,
+	.bireme-builder-page *::after {
+		animation: none !important;
+		transition-duration: .01ms !important;
+		transition-delay: 0s !important;
+	}
+
+	.bb-reveal,
+	.bb-reveal .bb-reveal-child {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+}

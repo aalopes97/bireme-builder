@@ -1,0 +1,319 @@
+.bireme-section--lista-edicoes {
+	--bb-ed-blue: #014EA3;
+	--bb-ed-blue-soft: #EAF2FB;
+	--bb-ed-orange: #FE5604;
+	--bb-ed-title: #1E1E1E;
+	--bb-ed-text: #929292;
+	--bb-ed-line: #E6E8EC;
+	--bb-ed-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.bireme-section--lista-edicoes .bb-ed {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 24px 20px 40px;
+	font-family: var(--bb-ed-font);
+	box-sizing: border-box;
+	container-type: inline-size;
+}
+
+.bireme-section--lista-edicoes .bb-ed *,
+.bireme-section--lista-edicoes .bb-ed *::before,
+.bireme-section--lista-edicoes .bb-ed *::after {
+	box-sizing: border-box;
+}
+
+.bireme-section--lista-edicoes .bb-ed a {
+	text-decoration: none !important;
+}
+
+.bireme-section--lista-edicoes .bb-ed a:focus-visible,
+.bireme-section--lista-edicoes .bb-ed summary:focus-visible {
+	outline: 2px solid var(--bb-ed-orange);
+	outline-offset: 2px;
+}
+
+/* Cabeçalho --------------------------------------------------------------- */
+
+.bireme-section--lista-edicoes .bb-ed__head {
+	margin: 0 0 20px;
+}
+
+.bireme-section--lista-edicoes .bb-ed__title {
+	margin: 0;
+	padding: 0;
+	color: var(--bb-ed-blue);
+	font-family: var(--bb-ed-font);
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.bireme-section--lista-edicoes .bb-ed__intro {
+	max-width: 760px;
+	margin: 8px 0 0;
+	color: #5A5F66;
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.bireme-section--lista-edicoes .bb-ed__empty {
+	margin: 0;
+	padding: 24px;
+	color: var(--bb-ed-text);
+	text-align: center;
+	background: #fff;
+	border: 1px dashed var(--bb-ed-line);
+	border-radius: 12px;
+}
+
+/* Navegação por ano */
+.bireme-section--lista-edicoes .bb-ed__years-nav {
+	position: sticky;
+	top: 0;
+	z-index: 5;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0 0 28px;
+	padding: 10px 0;
+	background: linear-gradient(to bottom, #F5F5F5 80%, rgba(245, 245, 245, 0));
+}
+
+.bireme-section--lista-edicoes .bb-ed__years-nav a {
+	padding: 7px 16px;
+	color: var(--bb-ed-title) !important;
+	font-size: 14px;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+	line-height: 1.2;
+	background: #fff;
+	border: 1px solid var(--bb-ed-line);
+	border-radius: 999px;
+	transition: color .2s, border-color .2s, background-color .2s;
+}
+
+.bireme-section--lista-edicoes .bb-ed__years-nav a:hover,
+.bireme-section--lista-edicoes .bb-ed__years-nav a.is-active {
+	color: #fff !important;
+	background: var(--bb-ed-blue);
+	border-color: var(--bb-ed-blue);
+}
+
+/* Ano ---------------------------------------------------------------------- */
+
+.bireme-section--lista-edicoes .bb-ed__year {
+	margin: 0 0 36px;
+	scroll-margin-top: 70px;
+}
+
+.bireme-section--lista-edicoes .bb-ed__year-head {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 0 0 16px;
+	list-style: none;
+}
+
+.bireme-section--lista-edicoes .bb-ed__year-head::-webkit-details-marker {
+	display: none;
+}
+
+.bireme-section--lista-edicoes .bb-ed__year-head::after {
+	content: "";
+	flex: 1 1 auto;
+	order: 2;
+	height: 1px;
+	background: var(--bb-ed-line);
+}
+
+.bireme-section--lista-edicoes .bb-ed__year-title {
+	position: relative;
+	margin: 0;
+	padding: 0 0 0 16px;
+	color: var(--bb-ed-blue);
+	font-family: var(--bb-ed-font);
+	font-size: 32px;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+	line-height: 1;
+	letter-spacing: -.01em;
+	text-transform: none;
+}
+
+.bireme-section--lista-edicoes .bb-ed__year-title::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 2px;
+	bottom: 2px;
+	width: 5px;
+	background: var(--bb-ed-orange);
+	border-radius: 3px;
+}
+
+.bireme-section--lista-edicoes .bb-ed__chevron {
+	order: 3;
+	flex: 0 0 auto;
+	color: var(--bb-ed-blue);
+	transition: transform .25s;
+}
+
+.bireme-section--lista-edicoes .is-collapsible > .bb-ed__year-head {
+	cursor: pointer;
+}
+
+.bireme-section--lista-edicoes .is-collapsible[open] .bb-ed__chevron {
+	transform: rotate(180deg);
+}
+
+.bireme-section--lista-edicoes .is-collapsible:not([open]) > .bb-ed__year-head {
+	margin-bottom: 0;
+}
+
+/* Cards das edições ---------------------------------------------------------- */
+
+.bireme-section--lista-edicoes .bb-ed__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 14px;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+}
+
+.bireme-section--lista-edicoes .bb-ed__item {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.bireme-section--lista-edicoes .bb-ed__item::before,
+.bireme-section--lista-edicoes .bb-ed__item::marker {
+	content: none !important;
+}
+
+.bireme-section--lista-edicoes .bb-ed__card {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	height: 100%;
+	padding: 16px 16px 14px;
+	color: var(--bb-ed-title) !important;
+	background: #fff;
+	border: 1px solid var(--bb-ed-line);
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+	transition: border-color .25s, box-shadow .25s, transform .25s;
+}
+
+.bireme-section--lista-edicoes .bb-ed__card:hover,
+.bireme-section--lista-edicoes .bb-ed__card:focus-visible {
+	border-color: var(--bb-ed-blue);
+	box-shadow: 0 10px 24px rgba(1, 78, 163, .12);
+	transform: translateY(-3px);
+}
+
+.bireme-section--lista-edicoes .bb-ed__card.has-image {
+	padding-top: 0;
+	overflow: hidden;
+}
+
+.bireme-section--lista-edicoes .bb-ed__cover {
+	display: block;
+	margin: 0 -16px 8px;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	background: #E6E9EE;
+}
+
+.bireme-section--lista-edicoes .bb-ed__cover img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	margin: 0;
+	object-fit: cover;
+	transition: transform .5s ease;
+}
+
+.bireme-section--lista-edicoes .bb-ed__card:hover .bb-ed__cover img {
+	transform: scale(1.05);
+}
+
+.bireme-section--lista-edicoes .bb-ed__month {
+	color: var(--bb-ed-orange);
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.3;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+}
+
+.bireme-section--lista-edicoes .bb-ed__name {
+	color: var(--bb-ed-title);
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.35;
+	transition: color .2s;
+}
+
+.bireme-section--lista-edicoes .bb-ed__card:hover .bb-ed__name {
+	color: var(--bb-ed-blue);
+}
+
+.bireme-section--lista-edicoes .bb-ed__foot {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: auto;
+	padding-top: 8px;
+}
+
+.bireme-section--lista-edicoes .bb-ed__count {
+	color: var(--bb-ed-text);
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.bireme-section--lista-edicoes .bb-ed__arrow {
+	display: inline-flex;
+	margin-left: auto;
+	color: var(--bb-ed-blue);
+	transition: transform .25s;
+}
+
+.bireme-section--lista-edicoes .bb-ed__card:hover .bb-ed__arrow {
+	transform: translateX(4px);
+}
+
+/* Responsivo ------------------------------------------------------------------ */
+
+@container (max-width: 900px) {
+	.bireme-section--lista-edicoes .bb-ed__grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@container (max-width: 680px) {
+	.bireme-section--lista-edicoes .bb-ed__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@container (max-width: 420px) {
+	.bireme-section--lista-edicoes .bb-ed__grid {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.bireme-section--lista-edicoes .bb-ed__year-title {
+		font-size: 26px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.bireme-section--lista-edicoes .bb-ed * {
+		transition: none !important;
+	}
+}

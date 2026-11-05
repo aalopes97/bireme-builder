@@ -1,0 +1,493 @@
+/*! Bireme Builder | Desenvolvido por @toni - 2WP | https://2wp.com.br */
+/* ==========================================================================
+   Bireme Builder — meta box
+   ========================================================================== */
+
+#bireme-builder-metabox .inside {
+	margin: 0;
+	padding: 0 12px 12px;
+}
+
+.bireme-builder {
+	display: grid;
+	grid-template-columns: 260px minmax(0, 1fr);
+	gap: 16px;
+	padding: 4px 0 8px;
+}
+
+@media (max-width: 960px) {
+	.bireme-builder {
+		grid-template-columns: 1fr;
+	}
+}
+
+.bireme-builder__heading {
+	margin: 0 0 4px;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: .04em;
+	color: #50575e;
+}
+
+.bireme-builder__library .description {
+	margin: 0 0 10px;
+}
+
+/* --------------------------------------------------------------------------
+   Biblioteca (os itens também viram helper no <body> durante o drag)
+   -------------------------------------------------------------------------- */
+
+.bireme-library {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bireme-library__item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 0 0 8px;
+	padding: 8px 10px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	cursor: move;
+	box-sizing: border-box;
+	list-style: none;
+	transition: border-color .15s, box-shadow .15s;
+}
+
+.bireme-library__item:hover {
+	border-color: #2271b1;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+}
+
+.bireme-library__item.is-helper {
+	box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+	opacity: .95;
+}
+
+.bireme-library__icon {
+	flex: 0 0 auto;
+	width: 32px;
+	height: 32px;
+	font-size: 22px;
+	line-height: 32px;
+	text-align: center;
+	color: #2271b1;
+	background: #f0f6fc;
+	border-radius: 4px;
+}
+
+.bireme-library__thumb {
+	flex: 0 0 auto;
+	width: 56px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 3px;
+	border: 1px solid #f0f0f1;
+}
+
+.bireme-library__text {
+	flex: 1 1 auto;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	line-height: 1.3;
+}
+
+.bireme-library__text small {
+	color: #646970;
+}
+
+.bireme-library__add {
+	flex: 0 0 auto;
+	padding: 2px;
+	border: 0;
+	background: transparent;
+	color: #2271b1;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.bireme-library__add:hover,
+.bireme-library__add:focus {
+	background: #f0f6fc;
+}
+
+/* --------------------------------------------------------------------------
+   Canvas
+   -------------------------------------------------------------------------- */
+
+.bireme-builder__notice {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0 0 10px;
+	color: #646970;
+	font-size: 12px;
+}
+
+.bireme-builder__canvas-wrap {
+	position: relative;
+}
+
+.bireme-canvas {
+	min-height: 140px;
+	padding: 10px;
+	background: #f6f7f7;
+	border: 2px dashed #dcdcde;
+	border-radius: 6px;
+}
+
+.bireme-builder__empty {
+	display: none;
+	position: absolute;
+	inset: 0;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	color: #8c8f94;
+	font-size: 14px;
+	pointer-events: none;
+}
+
+.bireme-builder.is-empty .bireme-builder__empty {
+	display: flex;
+}
+
+.bireme-canvas > .bireme-library__item {
+	margin: 0 0 10px;
+}
+
+.bireme-card-placeholder {
+	margin: 0 0 10px;
+	border: 2px dashed #2271b1;
+	background: #f0f6fc;
+	border-radius: 4px;
+	min-height: 48px;
+	visibility: visible !important;
+}
+
+/* --------------------------------------------------------------------------
+   Card de seção
+   -------------------------------------------------------------------------- */
+
+.bireme-card {
+	margin: 0 0 10px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+}
+
+.bireme-card:last-child {
+	margin-bottom: 0;
+}
+
+.bireme-card.ui-sortable-helper {
+	box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
+}
+
+.bireme-card__header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 10px;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.bireme-card.is-collapsed .bireme-card__header {
+	border-bottom: 0;
+}
+
+.bireme-card__handle {
+	cursor: move;
+	color: #8c8f94;
+}
+
+.bireme-card__handle:hover {
+	color: #1d2327;
+}
+
+.bireme-card__icon {
+	color: #2271b1;
+}
+
+.bireme-card__title {
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	cursor: pointer;
+}
+
+.bireme-card__summary {
+	margin-left: 6px;
+	color: #646970;
+}
+
+.bireme-card__badge {
+	display: none;
+	margin-left: 8px;
+	padding: 1px 6px;
+	font-size: 11px;
+	color: #fff;
+	background: #8c8f94;
+	border-radius: 10px;
+}
+
+.bireme-card.is-disabled .bireme-card__badge {
+	display: inline-block;
+}
+
+.bireme-card.is-disabled .bireme-card__header {
+	opacity: .65;
+}
+
+.bireme-card__actions {
+	display: flex;
+	gap: 2px;
+	flex: 0 0 auto;
+}
+
+.bireme-icon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	border: 0;
+	border-radius: 3px;
+	background: transparent;
+	color: #50575e;
+	cursor: pointer;
+}
+
+.bireme-icon-btn:hover,
+.bireme-icon-btn:focus {
+	background: #f0f0f1;
+	color: #1d2327;
+}
+
+.bireme-card__remove:hover,
+.bireme-row__remove:hover {
+	color: #b32d2e;
+}
+
+.bireme-card__toggle .dashicons,
+.bireme-row__toggle .dashicons {
+	transition: transform .15s;
+	transform: rotate(180deg);
+}
+
+.bireme-card.is-collapsed .bireme-card__toggle .dashicons,
+.bireme-row.is-collapsed > .bireme-row__header .bireme-row__toggle .dashicons {
+	transform: none;
+}
+
+.bireme-card__body {
+	padding: 14px;
+}
+
+.bireme-card.is-collapsed .bireme-card__body,
+.bireme-row.is-collapsed > .bireme-row__body {
+	display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Container de colunas
+   -------------------------------------------------------------------------- */
+
+.bireme-card.is-container {
+	border-color: #2271b1;
+}
+
+.bireme-card.is-container > .bireme-card__header {
+	background: #f0f6fc;
+}
+
+.bireme-columns {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 12px;
+	margin-top: 14px;
+}
+
+.bireme-column {
+	min-width: 0;
+	padding: 8px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.bireme-column__label {
+	margin: 0 0 6px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: .04em;
+	color: #50575e;
+}
+
+.bireme-column__items {
+	min-height: 70px;
+}
+
+.bireme-column__items:empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px dashed #c3c4c7;
+	border-radius: 4px;
+}
+
+.bireme-column__items:empty::before {
+	content: attr(data-empty);
+	color: #8c8f94;
+	font-size: 12px;
+}
+
+.bireme-column__items > .bireme-card {
+	margin-bottom: 8px;
+}
+
+.bireme-column__items > .bireme-card:last-child {
+	margin-bottom: 0;
+}
+
+.bireme-column__items > .bireme-library__item {
+	margin-bottom: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Campos
+   -------------------------------------------------------------------------- */
+
+.bireme-field {
+	margin: 0 0 14px;
+}
+
+.bireme-field:last-child {
+	margin-bottom: 0;
+}
+
+.bireme-field.is-condition-hidden {
+	display: none;
+}
+
+.bireme-field__label {
+	display: block;
+	margin: 0 0 4px;
+	font-weight: 600;
+}
+
+.bireme-field .description {
+	margin: 4px 0 0;
+}
+
+.bireme-field select {
+	min-width: 200px;
+	max-width: 100%;
+}
+
+.bireme-checkbox {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.bireme-image__preview img {
+	display: block;
+	max-width: 240px;
+	max-height: 160px;
+	margin: 0 0 8px;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+	object-fit: cover;
+}
+
+.bireme-image__actions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.bireme-image__remove {
+	color: #b32d2e;
+}
+
+.bireme-link {
+	display: grid;
+	grid-template-columns: 1fr 2fr auto;
+	gap: 8px;
+	align-items: center;
+}
+
+.bireme-link input[type="text"] {
+	width: 100%;
+}
+
+@media (max-width: 782px) {
+	.bireme-link {
+		grid-template-columns: 1fr;
+	}
+}
+
+.bireme-field--wysiwyg .wp-editor-wrap {
+	border: 1px solid #dcdcde;
+}
+
+/* --------------------------------------------------------------------------
+   Repeater
+   -------------------------------------------------------------------------- */
+
+.bireme-repeater__rows {
+	margin: 0 0 8px;
+}
+
+.bireme-row {
+	margin: 0 0 6px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+}
+
+.bireme-row__header {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 6px;
+}
+
+.bireme-row__handle {
+	cursor: move;
+	color: #8c8f94;
+}
+
+.bireme-row__title {
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.bireme-row__body {
+	padding: 10px 12px 12px;
+	background: #fff;
+	border-top: 1px solid #dcdcde;
+}
+
+.bireme-row-placeholder {
+	margin: 0 0 6px;
+	border: 2px dashed #2271b1;
+	border-radius: 3px;
+	visibility: visible !important;
+}

@@ -1,0 +1,111 @@
+.bireme-section--mais-lidas {
+	--bb-ml-blue: #014EA3;
+	--bb-ml-text: #1E1E1E;
+	--bb-ml-date: #4A4A4A;
+	--bb-ml-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.bireme-section--mais-lidas .bb-ml-wrap {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 24px 20px;
+	box-sizing: border-box;
+}
+
+.bireme-section--mais-lidas .bb-ml {
+	padding: 16px;
+	font-family: var(--bb-ml-font);
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+	box-sizing: border-box;
+}
+
+.bireme-section--mais-lidas .bb-ml *,
+.bireme-section--mais-lidas .bb-ml *::before,
+.bireme-section--mais-lidas .bb-ml *::after {
+	box-sizing: border-box;
+}
+
+.bireme-section--mais-lidas .bb-ml__title {
+	margin: 0 0 12px;
+	padding: 0;
+	color: var(--bb-ml-blue);
+	font-family: var(--bb-ml-font);
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.bireme-section--mais-lidas .bb-ml__list {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bireme-section--mais-lidas .bb-ml__item {
+	margin: 0;
+	padding: 0;
+}
+
+.bireme-section--mais-lidas .bb-ml__link {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px 4px;
+	color: var(--bb-ml-text) !important;
+	text-decoration: none !important;
+	border-radius: 8px;
+	transition: background-color .2s;
+}
+
+.bireme-section--mais-lidas .bb-ml__link:hover,
+.bireme-section--mais-lidas .bb-ml__link:focus-visible {
+	background: #F2F5FA;
+}
+
+.bireme-section--mais-lidas .bb-ml__link:focus-visible {
+	outline: 2px solid var(--bb-ml-blue);
+	outline-offset: 1px;
+}
+
+.bireme-section--mais-lidas .bb-ml__number {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	width: 30px;
+	height: 30px;
+	color: #fff;
+	background: var(--bb-ml-blue);
+	border-radius: 50%;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.bireme-section--mais-lidas .bb-ml__text {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0;
+}
+
+.bireme-section--mais-lidas .bb-ml__item-title {
+	color: var(--bb-ml-text);
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+.bireme-section--mais-lidas .bb-ml__date {
+	color: var(--bb-ml-date);
+	font-size: 11px;
+	font-weight: 400;
+	line-height: 1;
+}

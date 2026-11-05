@@ -1,0 +1,1406 @@
+/*! Bireme Builder | Desenvolvido por @toni - 2WP | https://2wp.com.br */
+/* ==========================================================================
+   Bireme Builder — layout das páginas com builder
+   ========================================================================== */
+
+body.bireme-builder-page {
+	margin: 0;
+	background: #F5F5F5;
+}
+
+.bireme-sr-only {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.bireme-skip-link {
+	position: absolute;
+	top: -100px;
+	left: 12px;
+	z-index: 100001;
+	padding: 8px 14px;
+	color: #fff;
+	background: #FE5604;
+	border-radius: 4px;
+	font-family: "Inter", system-ui, sans-serif;
+	text-decoration: none;
+}
+
+.bireme-skip-link:focus {
+	top: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.bireme-header {
+	--bh-orange: #FE5604;
+	--bh-cyan: #29B6F6;
+	--bh-blue: #0D4EA6;
+	--bh-blue-dark: #0A3B80;
+	--bh-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	position: relative;
+	z-index: 50;
+	color: #fff;
+	font-family: var(--bh-font);
+	/* 100% 100% (e não cover) para os triângulos da imagem nunca serem cortados nas laterais. */
+	background: var(--bh-bg, var(--bh-blue)) var(--bh-bg-image, url("../img/fundo_header_v3.jpg")) center / 100% 100% no-repeat;
+}
+
+.bireme-header *,
+.bireme-header *::before,
+.bireme-header *::after {
+	box-sizing: border-box;
+}
+
+.bireme-header a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.bireme-header ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bireme-header__container {
+	position: relative;
+	z-index: 1;
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* Barra superior ----------------------------------------------------------- */
+
+.bireme-header__topbar {
+	background: rgba(0, 20, 60, .28);
+	font-size: 11px;
+	line-height: 1;
+}
+
+.bireme-header__topbar a,
+.bireme-header__topbar span {
+	color: #fff !important;
+	font-size: 11px;
+	font-weight: 400;
+}
+
+.bireme-header__topbar-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	min-height: 24px;
+}
+
+.bireme-header__inline-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.bireme-header__inline-list > li {
+	display: flex;
+	align-items: center;
+}
+
+.bireme-header__inline-list > li + li::before {
+	content: "";
+	width: 1px;
+	height: 11px;
+	margin: 0 8px;
+	background: rgba(255, 255, 255, .6);
+}
+
+.bireme-header__inline-list a {
+	padding: 6px 0;
+	opacity: .9;
+	transition: opacity .2s;
+}
+
+.bireme-header__inline-list a:hover,
+.bireme-header__inline-list a:focus-visible {
+	opacity: 1;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.bireme-header__langs {
+	margin-left: auto;
+}
+
+.bireme-header__langs .is-current a {
+	opacity: 1;
+	font-weight: 500;
+}
+
+/* Faixa principal ---------------------------------------------------------- */
+
+.bireme-header__main {
+	position: relative;
+}
+
+.bireme-header__brand-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 18px 0 16px;
+	border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.bireme-header__brand {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+}
+
+.bireme-header__title {
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1.15;
+}
+
+.bireme-header__subtitle {
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1.3;
+	opacity: .95;
+}
+
+/* Busca */
+
+/* !important: isola dos estilos de formulário/botão do tema. */
+.bireme-header .bireme-header__search {
+	position: relative;
+	flex: 0 0 270px;
+	display: flex;
+	align-items: center;
+	align-self: center;
+	max-width: 100%;
+	margin: 0 0 0 auto !important;
+	padding: 0 !important;
+	border: 0 !important;
+	background: none !important;
+}
+
+.bireme-header .bireme-header__search input[type="search"] {
+	display: block;
+	width: 100% !important;
+	max-width: none !important;
+	height: 32px !important;
+	min-height: 0 !important;
+	margin: 0 !important;
+	padding: 0 38px 0 12px !important;
+	color: #1E1E1E !important;
+	background: #fff !important;
+	border: 0 !important;
+	border-radius: 6px !important;
+	box-shadow: none !important;
+	font-family: var(--bh-font) !important;
+	font-size: 12px !important;
+	line-height: 32px !important;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.bireme-header__search input[type="search"]::placeholder {
+	color: #1E1E1E;
+	opacity: .85;
+}
+
+.bireme-header__search input[type="search"]::-webkit-search-cancel-button {
+	display: none;
+}
+
+.bireme-header .bireme-header__search button,
+.bireme-header .bireme-header__search button:hover,
+.bireme-header .bireme-header__search button:focus {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px !important;
+	height: 32px !important;
+	min-height: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	color: var(--bh-blue) !important;
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	cursor: pointer;
+}
+
+.bireme-header__search button .bireme-icon {
+	width: 15px;
+	height: 15px;
+}
+
+.bireme-header__search input:focus-visible,
+.bireme-header a:focus-visible,
+.bireme-header button:focus-visible {
+	outline: 2px solid var(--bh-orange);
+	outline-offset: 2px;
+}
+
+/* Menu principal ----------------------------------------------------------- */
+
+.bireme-header__menu {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	gap: 26px;
+}
+
+.bireme-header__menu > li {
+	position: relative;
+	display: flex;
+}
+
+.bireme-header__menu > li > a {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 12px 0 13px;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1;
+	opacity: .95;
+}
+
+.bireme-header__menu > li > a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 3px;
+	background: var(--bh-orange);
+	border-radius: 2px 2px 0 0;
+	transform: scaleX(0);
+	transition: transform .2s;
+}
+
+.bireme-header__menu > li > a:hover::after,
+.bireme-header__menu > li > a:focus-visible::after,
+.bireme-header__menu > li.current-menu-item > a::after,
+.bireme-header__menu > li.current_page_item > a::after,
+.bireme-header__menu > li.current-menu-ancestor > a::after {
+	transform: scaleX(1);
+}
+
+.bireme-header__menu .bireme-icon--home {
+	width: 17px;
+	height: 17px;
+}
+
+.bireme-header__menu .bireme-icon--chevron {
+	width: 15px;
+	height: 15px;
+	transition: transform .2s;
+}
+
+.bireme-header__menu > li:hover > a .bireme-icon--chevron,
+.bireme-header__menu > li:focus-within > a .bireme-icon--chevron {
+	transform: rotate(180deg);
+}
+
+/* Submenu */
+
+.bireme-header__menu .sub-menu {
+	position: absolute;
+	top: 100%;
+	left: -12px;
+	z-index: 60;
+	min-width: 200px;
+	padding: 6px 0;
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(6px);
+	transition: opacity .2s, transform .2s, visibility 0s linear .2s;
+}
+
+.bireme-header__menu > li:hover > .sub-menu,
+.bireme-header__menu > li:focus-within > .sub-menu {
+	opacity: 1;
+	visibility: visible;
+	transform: none;
+	transition: opacity .2s, transform .2s, visibility 0s;
+}
+
+.bireme-header__menu .sub-menu a {
+	display: block;
+	padding: 9px 16px;
+	color: #1E1E1E;
+	font-size: 13px;
+	line-height: 1.3;
+}
+
+.bireme-header__menu .sub-menu a:hover,
+.bireme-header__menu .sub-menu a:focus-visible,
+.bireme-header__menu .sub-menu .current-menu-item > a {
+	color: var(--bh-orange);
+	background: #F5F7FB;
+}
+
+/* Botão do menu mobile */
+
+.bireme-header .bireme-header__toggle,
+.bireme-header .bireme-header__toggle:hover,
+.bireme-header .bireme-header__toggle:focus {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 40px !important;
+	height: 40px !important;
+	min-height: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	color: #fff !important;
+	background: transparent !important;
+	border: 1px solid rgba(255, 255, 255, .35) !important;
+	border-radius: 6px !important;
+	box-shadow: none !important;
+	cursor: pointer;
+}
+
+.bireme-header__toggle-bars,
+.bireme-header__toggle-bars::before,
+.bireme-header__toggle-bars::after {
+	display: block;
+	width: 18px;
+	height: 2px;
+	background: currentColor;
+	border-radius: 2px;
+	transition: transform .2s, opacity .2s;
+}
+
+.bireme-header__toggle-bars {
+	position: relative;
+}
+
+.bireme-header__toggle-bars::before,
+.bireme-header__toggle-bars::after {
+	content: "";
+	position: absolute;
+	left: 0;
+}
+
+.bireme-header__toggle-bars::before {
+	top: -6px;
+}
+
+.bireme-header__toggle-bars::after {
+	top: 6px;
+}
+
+.bireme-header__toggle[aria-expanded="true"] .bireme-header__toggle-bars {
+	background: transparent;
+}
+
+.bireme-header__toggle[aria-expanded="true"] .bireme-header__toggle-bars::before {
+	transform: translateY(6px) rotate(45deg);
+}
+
+.bireme-header__toggle[aria-expanded="true"] .bireme-header__toggle-bars::after {
+	transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Responsivo --------------------------------------------------------------- */
+
+@media (max-width: 1240px) {
+	.bireme-header__container {
+		padding: 0 64px;
+	}
+}
+
+@media (max-width: 860px) {
+	.bireme-header__container {
+		padding: 0 max(20px, 7vw);
+	}
+
+	.bireme-header__brand-row {
+		flex-wrap: wrap;
+		gap: 14px;
+	}
+
+	.bireme-header__brand {
+		flex: 1 1 calc(100% - 60px);
+	}
+
+	.bireme-header__title {
+		font-size: 19px;
+	}
+
+	.bireme-header .bireme-header__toggle,
+	.bireme-header .bireme-header__toggle:hover,
+	.bireme-header .bireme-header__toggle:focus {
+		display: inline-flex;
+	}
+
+	.bireme-header .bireme-header__search {
+		order: 3;
+		flex: 1 1 100%;
+		margin: 0 !important;
+	}
+
+	.bireme-header__nav {
+		display: none;
+		padding: 6px 0 12px;
+	}
+
+	.bireme-header__nav.is-open {
+		display: block;
+	}
+
+	.bireme-header__menu {
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.bireme-header__menu > li {
+		flex-direction: column;
+	}
+
+	.bireme-header__menu > li > a {
+		padding: 12px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, .12);
+	}
+
+	.bireme-header__menu > li > a::after {
+		right: auto;
+		width: 3px;
+		height: 60%;
+		top: 20%;
+		bottom: auto;
+		left: -10px;
+		border-radius: 2px;
+	}
+
+	.bireme-header__menu .sub-menu {
+		position: static;
+		min-width: 0;
+		padding: 0 0 6px 16px;
+		background: transparent;
+		box-shadow: none;
+		opacity: 1;
+		visibility: visible;
+		transform: none;
+	}
+
+	.bireme-header__menu .sub-menu a {
+		color: #fff;
+		padding: 9px 0;
+		opacity: .85;
+	}
+
+	.bireme-header__menu .sub-menu a:hover,
+	.bireme-header__menu .sub-menu a:focus-visible,
+	.bireme-header__menu .sub-menu .current-menu-item > a {
+		color: #fff;
+		background: transparent;
+		opacity: 1;
+	}
+
+	.bireme-header__menu .bireme-icon--chevron {
+		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.bireme-header__topbar-inner {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0;
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Header — modelo "Faixa branca com logo"
+   -------------------------------------------------------------------------- */
+
+.bireme-header--brand {
+	background: none;
+}
+
+.bireme-header--brand .bireme-header__whitebar {
+	position: relative;
+	z-index: 2;
+	color: #1E1E1E;
+	background: var(--bh-bar, #fff);
+	box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+}
+
+.bireme-header--brand .bireme-header__whitebar-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	min-height: 64px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.bireme-header--brand .bireme-header__logo {
+	display: inline-flex;
+	flex: 0 1 auto;
+	min-width: 0;
+}
+
+.bireme-header--brand .bireme-header__logo img {
+	display: block;
+	width: auto;
+	max-width: 100%;
+	height: 44px;
+	margin: 0;
+	object-fit: contain;
+	object-position: left center;
+}
+
+.bireme-header--brand .bireme-header__tools {
+	display: flex;
+	align-items: center;
+	gap: 22px;
+	margin-left: auto;
+}
+
+/* Idiomas */
+.bireme-header--brand .bireme-header__langs {
+	margin: 0;
+}
+
+.bireme-header--brand .bireme-header__langs a {
+	padding: 6px 0;
+	color: var(--bh-cyan) !important;
+	font-size: 11px;
+	font-weight: 400;
+	opacity: 1;
+}
+
+.bireme-header--brand .bireme-header__langs a:hover,
+.bireme-header--brand .bireme-header__langs a:focus-visible {
+	color: var(--bh-blue) !important;
+}
+
+.bireme-header--brand .bireme-header__langs .is-current a {
+	color: var(--bh-blue) !important;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.bireme-header--brand .bireme-header__inline-list > li + li::before {
+	background: rgba(41, 182, 246, .6);
+}
+
+/* Busca na faixa branca */
+.bireme-header--brand .bireme-header__search {
+	flex: 0 0 270px;
+	margin: 0 !important;
+}
+
+.bireme-header--brand .bireme-header__search input[type="search"] {
+	height: 34px !important;
+	line-height: 34px !important;
+	padding: 0 38px 0 12px !important;
+	background: #F5F5F5 !important;
+	border: 1px solid #E6E8EC !important;
+	border-radius: 6px !important;
+	transition: border-color .2s, background-color .2s;
+}
+
+.bireme-header--brand .bireme-header__search input[type="search"]:focus {
+	background: #fff !important;
+	border-color: var(--bh-blue) !important;
+}
+
+.bireme-header--brand .bireme-header__search input[type="search"]::placeholder {
+	color: #4A4F57;
+}
+
+.bireme-header--brand .bireme-header__search button,
+.bireme-header--brand .bireme-header__search button:hover,
+.bireme-header--brand .bireme-header__search button:focus {
+	height: 34px !important;
+	color: #1E1E1E !important;
+}
+
+.bireme-header--brand .bireme-header__toggle,
+.bireme-header--brand .bireme-header__toggle:hover,
+.bireme-header--brand .bireme-header__toggle:focus {
+	color: var(--bh-blue) !important;
+	border-color: #DCDFE4 !important;
+}
+
+/* Faixa azul */
+/* 100% 100% para o triângulo da esquerda e as faixas da direita nunca serem cortados. */
+.bireme-header--brand .bireme-header__main {
+	color: #fff;
+	background: var(--bh-v2-bg, #024081 url("../img/fundo_header_v3.jpg") center / 100% 100% no-repeat);
+}
+
+.bireme-header--brand .bireme-header__main .bireme-header__container {
+	padding-top: 22px;
+}
+
+.bireme-header--brand .bireme-header__brand {
+	display: inline-flex;
+	gap: 4px;
+}
+
+.bireme-header--brand .bireme-header__title {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 1.15;
+}
+
+.bireme-header--brand .bireme-header__subtitle {
+	font-size: 14px;
+}
+
+/* Linha decorativa: ciano, laranja e branco. */
+.bireme-header--brand .bireme-header__accent {
+	display: block;
+	width: 360px;
+	max-width: 100%;
+	height: 3px;
+	margin: 14px 0 6px;
+	background: linear-gradient(90deg, var(--bh-cyan) 0 17%, var(--bh-orange) 17% 34%, rgba(255, 255, 255, .75) 34% 100%);
+	border-radius: 2px;
+}
+
+.bireme-header--brand .bireme-header__menu > li > a {
+	padding: 14px 0 13px;
+	font-size: 14px;
+}
+
+@media (max-width: 860px) {
+	.bireme-header--brand .bireme-header__whitebar-inner {
+		flex-wrap: wrap;
+		gap: 10px 16px;
+	}
+
+	.bireme-header--brand .bireme-header__logo {
+		flex: 1 1 calc(100% - 60px);
+	}
+
+	.bireme-header--brand .bireme-header__logo img {
+		height: 34px;
+	}
+
+	.bireme-header--brand .bireme-header__tools {
+		order: 3;
+		flex: 1 1 100%;
+		flex-wrap: wrap;
+		gap: 8px 16px;
+		margin: 0;
+	}
+
+	.bireme-header--brand .bireme-header__search {
+		flex: 1 1 100%;
+	}
+
+	.bireme-header--brand .bireme-header__main .bireme-header__container {
+		padding-top: 16px;
+		padding-bottom: 10px;
+	}
+
+	.bireme-header--brand .bireme-header__title {
+		font-size: 20px;
+	}
+
+	.bireme-header--brand .bireme-header__accent {
+		width: 220px;
+		margin-bottom: 4px;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Arquivo: título e breadcrumb
+   -------------------------------------------------------------------------- */
+
+.bireme-archive-head {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 28px 20px 0;
+	font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	box-sizing: border-box;
+}
+
+.bireme-archive-head__title {
+	margin: 0 0 8px;
+	padding: 0;
+	color: #014EA3;
+	font-family: inherit;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.bireme-breadcrumb__list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+	font-size: 11px;
+	line-height: 1.4;
+}
+
+.bireme-breadcrumb__item {
+	display: flex;
+	align-items: center;
+	margin: 0 !important;
+	color: #014EA3;
+	font-weight: 500;
+}
+
+.bireme-breadcrumb__item + .bireme-breadcrumb__item::before {
+	content: "";
+	width: 5px;
+	height: 5px;
+	margin: 0 10px 0 8px;
+	border-top: 1.5px solid #929292;
+	border-right: 1.5px solid #929292;
+	transform: rotate(45deg);
+}
+
+.bireme-breadcrumb__item a {
+	color: #4A4A4A !important;
+	font-weight: 400;
+	text-decoration: none !important;
+}
+
+.bireme-breadcrumb__item:last-child a {
+	color: #014EA3 !important;
+	font-weight: 500;
+}
+
+.bireme-breadcrumb__item a:hover,
+.bireme-breadcrumb__item a:focus-visible {
+	color: #014EA3 !important;
+	text-decoration: underline !important;
+}
+
+/* --------------------------------------------------------------------------
+   Página 404
+   -------------------------------------------------------------------------- */
+
+.bireme-404 {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 20px 20px 8px;
+	font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	box-sizing: border-box;
+}
+
+.bireme-404 *,
+.bireme-404 *::before,
+.bireme-404 *::after {
+	box-sizing: border-box;
+}
+
+.bireme-404__box {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 40px;
+	overflow: hidden;
+	padding: 40px 48px;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+}
+
+.bireme-404__box::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, #29B6F6 0 33%, #FE5604 33% 66%, #014EA3 66% 100%);
+}
+
+.bireme-404__code {
+	flex: 0 0 auto;
+	margin: 0;
+	color: #014EA3;
+	font-size: 120px;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -.04em;
+	opacity: .12;
+}
+
+.bireme-404__body {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.bireme-404__kicker {
+	margin: 0 0 6px;
+	color: #FE5604;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+}
+
+.bireme-404__title {
+	margin: 0 0 10px;
+	padding: 0;
+	color: #014EA3;
+	font-family: inherit;
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.bireme-404__text {
+	max-width: 620px;
+	margin: 0 0 20px;
+	color: #4A4A4A;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.bireme-404__search {
+	display: flex;
+	max-width: 520px;
+	margin: 0 0 18px;
+}
+
+.bireme-404__search input[type="search"] {
+	flex: 1 1 auto;
+	min-width: 0;
+	height: 44px;
+	margin: 0;
+	padding: 0 14px;
+	color: #1E1E1E;
+	font-family: inherit;
+	font-size: 14px;
+	background: #F5F7FB;
+	border: 1px solid #DCDFE4;
+	border-right: 0;
+	border-radius: 8px 0 0 8px;
+	box-shadow: none;
+	outline: none;
+}
+
+.bireme-404__search input[type="search"]:focus {
+	background: #fff;
+	border-color: #014EA3;
+}
+
+.bireme-404__search button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	height: 44px;
+	margin: 0;
+	padding: 0 18px;
+	color: #fff;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1;
+	text-transform: none;
+	background: #014EA3;
+	border: 0;
+	border-radius: 0 8px 8px 0;
+	cursor: pointer;
+}
+
+.bireme-404__search button:hover,
+.bireme-404__search button:focus-visible {
+	background: #0A3B80;
+}
+
+.bireme-404__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+}
+
+.bireme-404__links li {
+	margin: 0 !important;
+}
+
+.bireme-404__link {
+	display: inline-block;
+	padding: 10px 18px;
+	color: #014EA3 !important;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1;
+	text-decoration: none !important;
+	border: 1.5px solid #014EA3;
+	border-radius: 8px;
+	transition: background-color .2s, color .2s;
+}
+
+.bireme-404__link:hover,
+.bireme-404__link:focus-visible {
+	color: #fff !important;
+	background: #014EA3;
+}
+
+.bireme-404__link.is-primary {
+	color: #fff !important;
+	background: #FE5604;
+	border-color: #FE5604;
+}
+
+.bireme-404__link.is-primary:hover,
+.bireme-404__link.is-primary:focus-visible {
+	filter: brightness(.92);
+}
+
+@media (max-width: 720px) {
+	.bireme-404__box {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+		padding: 28px 22px;
+	}
+
+	.bireme-404__code {
+		font-size: 72px;
+	}
+
+	.bireme-404__title {
+		font-size: 22px;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Rodapé
+   -------------------------------------------------------------------------- */
+
+.bireme-footer {
+	--bf-blue: #014EA3;
+	--bf-title: #1E1E1E;
+	--bf-text: #6F6F6F;
+	--bf-line: #014EA3;
+	--bf-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	margin-top: 32px;
+	color: var(--bf-text);
+	font-family: var(--bf-font);
+	background: var(--bf-bg, #fff);
+}
+
+.bireme-footer *,
+.bireme-footer *::before,
+.bireme-footer *::after {
+	box-sizing: border-box;
+}
+
+.bireme-footer__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px 40px;
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 28px 20px;
+}
+
+.bireme-footer__brand {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	min-width: 0;
+}
+
+.bireme-footer__logo {
+	display: block;
+	flex: 0 0 auto;
+	line-height: 0;
+}
+
+.bireme-footer__logo img {
+	display: block;
+	width: auto;
+	max-width: 100%;
+	height: 40px;
+	margin: 0;
+	object-fit: contain;
+	object-position: left center;
+}
+
+.bireme-footer__info {
+	padding-left: 16px;
+	border-left: 1px solid #D9D9D9;
+}
+
+.bireme-footer__title,
+.bireme-footer__text {
+	margin: 0;
+	padding: 0;
+	font-family: var(--bf-font);
+	font-size: 11px;
+	line-height: 1.6;
+	letter-spacing: 0;
+}
+
+.bireme-footer__title {
+	color: var(--bf-title);
+	font-weight: 500;
+}
+
+.bireme-footer__text {
+	color: var(--bf-text);
+	font-weight: 400;
+}
+
+.bireme-footer__aside {
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 10px;
+	margin-left: auto;
+}
+
+.bireme-footer__copyright {
+	margin: 0;
+	color: var(--bf-text);
+	font-family: var(--bf-font);
+	font-size: 11px;
+	font-weight: 400;
+	line-height: 1.6;
+	text-align: right;
+}
+
+.bireme-footer__menu,
+.bireme-footer__social {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+}
+
+.bireme-footer__menu > li {
+	margin: 0 !important;
+	padding: 0 12px;
+	border-left: 1px solid var(--bf-line);
+	font-size: 11px;
+	line-height: 1.2;
+}
+
+.bireme-footer__menu > li:first-child {
+	border-left: 0;
+}
+
+.bireme-footer__menu > li:last-child {
+	padding-right: 0;
+}
+
+.bireme-footer__menu a,
+.bireme-footer__menu span {
+	color: var(--bf-blue) !important;
+	font-weight: 500;
+	text-decoration: none !important;
+}
+
+.bireme-footer__menu a:hover,
+.bireme-footer__menu a:focus-visible {
+	text-decoration: underline !important;
+}
+
+.bireme-footer__social {
+	gap: 6px;
+}
+
+.bireme-footer__social li {
+	margin: 0 !important;
+	padding: 0;
+}
+
+.bireme-footer__social a {
+	display: block;
+	color: #111 !important;
+	line-height: 0;
+	text-decoration: none !important;
+	transition: color .2s;
+}
+
+.bireme-footer__social a:hover,
+.bireme-footer__social a:focus-visible {
+	color: var(--bf-blue) !important;
+}
+
+.bireme-footer__social svg {
+	display: block;
+	width: 20px;
+	height: 20px;
+}
+
+@media (max-width: 860px) {
+	.bireme-footer__inner {
+		flex-direction: column;
+		align-items: flex-start;
+		padding-left: max(20px, 7vw);
+		padding-right: max(20px, 7vw);
+	}
+
+	.bireme-footer__aside {
+		align-items: flex-end;
+		align-self: stretch;
+	}
+
+	.bireme-footer__menu > li:first-child {
+		padding-left: 0;
+	}
+}
+
+@media (max-width: 600px) {
+	.bireme-footer__brand {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.bireme-footer__info {
+		padding-left: 0;
+		border-left: 0;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Rodapé — modelo "Fundo azul com triângulos"
+   -------------------------------------------------------------------------- */
+
+/* Duas camadas: em cima, as colunas sobre o fundo com triângulos nas laterais
+   (ciano/laranja à esquerda, laranja/ciano à direita; 100% 100% para nunca cortá-los);
+   embaixo, logo e copyright sobre o azul-marinho liso, separados por uma linha. */
+.bireme-footer--brand {
+	--bf-orange: #FE5604;
+	--bf-cyan: #29B6F6;
+	--bf-navy: #002857;
+	/* Distância do conteúdo até os triângulos, que ocupam cerca de 10% da largura. */
+	--bf-side: max(20px, calc(11vw - max(0px, (100vw - 1180px) / 2)));
+	color: #fff;
+	background: var(--bf-band, var(--bf-navy));
+}
+
+.bireme-footer--brand .bireme-footer__top {
+	position: relative;
+	background: var(--bf-band, var(--bf-navy)) var(--bf-band-image, url("../img/fundo_footer.jpg")) center / 100% 100% no-repeat;
+}
+
+.bireme-footer--brand .bireme-footer__bottom {
+	position: relative;
+	background: var(--bf-band, var(--bf-navy));
+	border-top: 1px solid rgba(255, 255, 255, .18);
+}
+
+.bireme-footer--brand .bireme-footer__deco {
+	display: none;
+}
+
+.bireme-footer--brand .bireme-footer__top-inner {
+	display: flex;
+	align-items: flex-start;
+	gap: 32px 48px;
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 36px var(--bf-side);
+}
+
+.bireme-footer--brand .bireme-footer__columns {
+	display: grid;
+	flex: 1 1 auto;
+	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	gap: 28px 48px;
+}
+
+.bireme-footer--brand .bireme-footer__column {
+	min-width: 150px;
+	padding-left: 12px;
+	border-left: 1px solid rgba(255, 255, 255, .35);
+}
+
+.bireme-footer--brand .bireme-footer__column-title {
+	margin: 0 0 10px;
+	padding: 0;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.bireme-footer--brand .bireme-footer__column-list {
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+}
+
+.bireme-footer--brand .bireme-footer__column-list li {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.bireme-footer--brand .bireme-footer__column-list a,
+.bireme-footer--brand .bireme-footer__column-list span {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 4px 0;
+	color: rgba(255, 255, 255, .9) !important;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.3;
+	text-decoration: none !important;
+}
+
+.bireme-footer--brand .bireme-footer__column-list a svg {
+	transition: transform .2s;
+}
+
+.bireme-footer--brand .bireme-footer__column-list a:hover,
+.bireme-footer--brand .bireme-footer__column-list a:focus-visible {
+	color: var(--bf-cyan) !important;
+}
+
+.bireme-footer--brand .bireme-footer__column-list a:hover svg {
+	transform: translateX(3px);
+}
+
+.bireme-footer--brand .bireme-footer__bottom-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px 32px;
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 22px var(--bf-side);
+	box-sizing: border-box;
+}
+
+.bireme-footer--brand .bireme-footer__logo img {
+	height: 36px;
+}
+
+.bireme-footer--brand .bireme-footer__logo.is-default img {
+	filter: brightness(0) invert(1);
+}
+
+.bireme-footer--brand .bireme-footer__copyright {
+	flex: 1 1 auto;
+	margin: 0 0 0 auto;
+	color: rgba(255, 255, 255, .9);
+	font-size: 12px;
+	line-height: 1.5;
+	text-align: right;
+}
+
+.bireme-footer--brand .bireme-footer__aside {
+	flex-direction: row;
+	align-items: center;
+	gap: 24px;
+}
+
+.bireme-footer--brand .bireme-footer__menu > li {
+	border-left-color: rgba(255, 255, 255, .7);
+	font-size: 10px;
+}
+
+.bireme-footer--brand .bireme-footer__menu a,
+.bireme-footer--brand .bireme-footer__menu span {
+	color: #fff !important;
+	font-weight: 400;
+}
+
+.bireme-footer--brand .bireme-footer__social a {
+	color: #fff !important;
+	transition: opacity .2s, transform .2s;
+}
+
+.bireme-footer--brand .bireme-footer__social a:hover,
+.bireme-footer--brand .bireme-footer__social a:focus-visible {
+	color: #fff !important;
+	opacity: .85;
+	transform: translateY(-2px);
+}
+
+/* Ícones brancos com o desenho em azul. */
+.bireme-footer--brand .bireme-footer__social svg [fill="#fff"] {
+	fill: var(--bf-navy);
+}
+
+.bireme-footer--brand .bireme-footer__social svg [stroke="#fff"] {
+	stroke: var(--bf-navy);
+}
+
+.bireme-footer--brand a:focus-visible {
+	outline: 2px solid var(--bf-orange);
+	outline-offset: 2px;
+}
+
+@media (max-width: 960px) {
+	.bireme-footer--brand {
+		--bf-side: max(40px, 13vw);
+	}
+
+	.bireme-footer--brand .bireme-footer__top-inner,
+	.bireme-footer--brand .bireme-footer__bottom-inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.bireme-footer--brand .bireme-footer__columns {
+		width: 100%;
+	}
+
+	.bireme-footer--brand .bireme-footer__copyright {
+		margin: 0;
+		text-align: left;
+	}
+}
+
+@media (max-width: 520px) {
+	.bireme-footer--brand .bireme-footer__columns {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 20px;
+	}
+
+	.bireme-footer--brand .bireme-footer__aside {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+	}
+
+	.bireme-footer--brand .bireme-footer__menu > li:first-child {
+		padding-left: 0;
+	}
+}

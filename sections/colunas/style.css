@@ -1,0 +1,31 @@
+.bireme-section--colunas .bb-cols {
+	display: grid;
+	grid-template-columns: var(--bb-cols-template, 1fr);
+	gap: var(--bb-cols-gap, 24px);
+	align-items: start;
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 24px 20px;
+	box-sizing: border-box;
+}
+
+.bireme-section--colunas .bb-cols__col {
+	display: flex;
+	flex-direction: column;
+	gap: var(--bb-cols-gap, 24px);
+	min-width: 0;
+}
+
+/* Seções dentro de uma coluna ocupam a largura da coluna (sem o container/padding de página). */
+.bireme-section--colunas .bb-cols__col > .bireme-section > :first-child {
+	max-width: none;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+}
+
+@media (max-width: 900px) {
+	.bireme-section--colunas .bb-cols {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

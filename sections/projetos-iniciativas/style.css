@@ -1,0 +1,168 @@
+.bireme-section--projetos-iniciativas {
+	--bb-pi-blue: #014EA3;
+	--bb-pi-orange: #FE5604;
+	--bb-pi-title: #1E1E1E;
+	--bb-pi-text: #929292;
+	--bb-pi-line: #E6E8EC;
+	--bb-pi-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 24px 20px;
+	font-family: var(--bb-pi-font);
+	box-sizing: border-box;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi *,
+.bireme-section--projetos-iniciativas .bb-pi *::before,
+.bireme-section--projetos-iniciativas .bb-pi *::after {
+	box-sizing: border-box;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin: 0 0 12px;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__title {
+	margin: 0;
+	padding: 0;
+	color: var(--bb-pi-blue);
+	font-family: var(--bb-pi-font);
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__more {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	flex: 0 0 auto;
+	color: var(--bb-pi-blue) !important;
+	font-size: 12px;
+	font-weight: 500;
+	text-decoration: none !important;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__more:hover,
+.bireme-section--projetos-iniciativas .bb-pi__more:focus-visible {
+	text-decoration: underline !important;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__box {
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid var(--bb-pi-line);
+	border-radius: 12px;
+}
+
+/* As linhas divisórias são sombras de 1px; as que caem na borda externa ficam cortadas pelo overflow da caixa. */
+.bireme-section--projetos-iniciativas .bb-pi__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--bb-pi-cols, 5), minmax(0, 1fr));
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin: 0 !important;
+	padding: 14px 14px 18px;
+	box-shadow: 1px 0 0 var(--bb-pi-line), 0 1px 0 var(--bb-pi-line);
+	transition: background-color .2s;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__item::before {
+	content: none !important;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__item.has-link:hover,
+.bireme-section--projetos-iniciativas .bb-pi__item.has-link:focus-within {
+	background: #F7F9FC;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__logo {
+	display: flex;
+	align-items: center;
+	height: 48px;
+	margin-bottom: 6px;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__logo img {
+	display: block;
+	width: auto;
+	height: 100%;
+	max-width: 100%;
+	margin: 0;
+	object-fit: contain;
+	object-position: left center;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__name {
+	margin: 0;
+	padding: 0;
+	color: var(--bb-pi-title);
+	font-family: var(--bb-pi-font);
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.3;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__name a {
+	color: inherit !important;
+	text-decoration: none !important;
+}
+
+/* O link do título cobre a célula inteira. */
+.bireme-section--projetos-iniciativas .bb-pi__name a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__name a:focus-visible {
+	outline: none;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__name a:focus-visible::after {
+	outline: 2px solid var(--bb-pi-orange);
+	outline-offset: -2px;
+}
+
+.bireme-section--projetos-iniciativas .bb-pi__text {
+	margin: 0;
+	color: var(--bb-pi-text);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+	.bireme-section--projetos-iniciativas .bb-pi__grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.bireme-section--projetos-iniciativas .bb-pi__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.bireme-section--projetos-iniciativas .bb-pi__head {
+		flex-wrap: wrap;
+	}
+}

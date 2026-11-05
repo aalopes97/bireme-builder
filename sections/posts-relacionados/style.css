@@ -1,0 +1,49 @@
+.bireme-section--posts-relacionados .bb-rel__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin: 0 0 12px;
+}
+
+.bireme-section--posts-relacionados .bb-rel__title {
+	margin: 0;
+	padding: 0;
+	color: var(--bb-ap-blue);
+	font-family: var(--bb-ap-font);
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.bireme-section--posts-relacionados .bb-rel__more {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	flex: 0 0 auto;
+	color: var(--bb-ap-blue) !important;
+	font-size: 12px;
+	font-weight: 500;
+	text-decoration: none !important;
+}
+
+.bireme-section--posts-relacionados .bb-rel__more svg {
+	transition: transform .2s cubic-bezier(.2, .7, .2, 1);
+}
+
+.bireme-section--posts-relacionados .bb-rel__more:hover,
+.bireme-section--posts-relacionados .bb-rel__more:focus-visible {
+	text-decoration: underline !important;
+}
+
+.bireme-section--posts-relacionados .bb-rel__more:hover svg {
+	transform: translateX(4px);
+}
+
+@media (max-width: 560px) {
+	.bireme-section--posts-relacionados .bb-rel__head {
+		flex-wrap: wrap;
+	}
+}
